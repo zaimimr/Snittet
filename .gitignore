@@ -1,1 +1,6 @@
 Ignore files:
+node_modules
+package-lock.json
+yarn-error.log
+.eslintcache
+.env

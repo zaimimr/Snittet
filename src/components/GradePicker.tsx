@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const GradePicker = ({ id, studie }: {id: number, studie: IStudies}) => {
+const GradePicker = ({ id, studie }: { id: number; studie: IStudies }) => {
   const classes = useStyles();
 
   const [studies, setStudies] = useSetStudies();
@@ -43,12 +43,14 @@ const GradePicker = ({ id, studie }: {id: number, studie: IStudies}) => {
             className={classes.avatar}
             onClick={() => pickGrade(score)}
             style={{
-              backgroundColor:
+              background: `linear-gradient(135deg, ${
                 studie.currentGrade === null
                   ? color
                   : studie.currentGrade === score
                   ? color
-                  : "#ADABBE",
+                  : "rgba(97,96,106"
+              },0.9) 30%, rgba(255,255,255,0.2) 100%)`,
+              boxShadow: "3px 3px 10px 0px rgba(0,0,0,0.5)",
             }}
           >
             <Typography variant="body1">{grade}</Typography>

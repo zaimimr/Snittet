@@ -1,8 +1,7 @@
-import React from "react";
-import { db } from "service/firebase";
 import axios from "axios";
+import { db } from "service/firebase";
 
-export const post = (code:any, name:any) => {
+export const post = (code: string, name: string) => {
   db.collection("Subjects")
     .doc()
     .set({
@@ -10,31 +9,38 @@ export const post = (code:any, name:any) => {
       norwegian_name: name,
     })
     .catch((error) => {
+      // eslint-disable-next-line no-console
       console.error("Error writing document: ", error);
     });
 };
 
-export const getStudies = (keyword: string) => {
-  const studies: any = [];
+export type IMinStudy = {
+  code: string;
+  norwegian_name: string;
+};
 
-  return db
+export const getStudies = (keyword: string) => {
+  const studies: IMinStudy[] = [];
+
+  db
     .collection("Subjects")
-    .where('code', ">=", keyword)
-    .where('code', "<", keyword +`z`)
+    .where("code", ">=", keyword)
+    .where("code", "<", keyword + `z`)
     .orderBy("code", "asc")
     .limit(5)
     .get()
     .then((data) => {
       data.docs.map((doc) => {
-        studies.push(doc.data())
+        studies.push(doc.data() as IMinStudy);
       });
     })
-    .then(()=>studies)
     .catch(function (error) {
+      // eslint-disable-next-line no-console
       console.log("Error getting document:", error);
-    });
+    })
+   return studies 
 };
 
 export const getStudie = (code: string) => {
-  return axios.get(`https://grades.no/api/v2/courses/${code}/`)
-}
+  return axios.get(`https://grades.no/api/v2/courses/${code}/`);
+};

@@ -16,7 +16,9 @@ const Landing = () => {
   }, [studies]);
 
   useEffect(() => {
-    setStudies(cookies.studies);
+    if (cookies.studies) {
+      setStudies(cookies.studies);
+    }
   }, []);
 
   return (
@@ -26,7 +28,6 @@ const Landing = () => {
           alignItems="center"
           container
           direction="column"
-          item
           justify="center"
           spacing={8}
         >
@@ -40,7 +41,7 @@ const Landing = () => {
             justify="center"
             spacing={4}
           >
-            {studies.length ? (
+            {studies?.length ? (
               studies.map((studie: IStudies, index: number) => (
                 <Card id={index} key={index} studie={studie} />
               ))

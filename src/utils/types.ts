@@ -1,7 +1,7 @@
 export type IStudies = {
     code: string;
     norwegian_name: string;
-    taught_in_spring: boolean;
+    taught_in_autumn: boolean;
     credit: number;
     average: number;
     currentGrade: number | null;

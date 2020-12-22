@@ -2,11 +2,11 @@ import { TextField } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 import { useSetStudies } from "contexts/StudiesContext";
 import React, { useState } from "react";
-import { getStudie, getStudies } from "service/service";
+import { getStudie, getStudies, IMinStudy } from "service/service";
 
 const Searchbar = () => {
   const [studies, setStudies] = useSetStudies();
-  const [search, setSearch] = useState([]);
+  const [search, setSearch] = useState<IMinStudy[]>([]);
   const [loading, setLoading] = useState(false);
 
   const searchStudie = async (text: string) => {
@@ -26,7 +26,7 @@ const Searchbar = () => {
             code: res.data.code,
             norwegian_name: res.data.norwegian_name,
             credit: res.data.credit,
-            taught_in_spring: res.data.taught_in_spring,
+            taught_in_autumn: res.data.taught_in_autumn,
             average: res.data.average,
             currentGrade: null,
           },

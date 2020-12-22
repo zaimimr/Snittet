@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Card = ({ id, studie }: {id: number, studie: IStudies}) => {
+const Card = ({ id, studie }: { id: number; studie: IStudies }) => {
   const classes = useStyles();
   const [studies, setStudies] = useSetStudies();
 
@@ -55,10 +55,14 @@ const Card = ({ id, studie }: {id: number, studie: IStudies}) => {
             justify="flex-start"
           >
             <Grid item>
-              <Typography variant="h3">{studie.code}</Typography>
+              <Typography style={{ overflow: "hidden" }} variant="h3">
+                {studie.code}
+              </Typography>
             </Grid>
             <Grid item>
-              <Typography>{studie.taught_in_spring ? "Vår" : "Høst"}</Typography>
+              <Typography>
+                {studie.taught_in_autumn ? "Høst" : "Vår" }
+              </Typography>
             </Grid>
           </Grid>
           <Grid item style={{ overflow: "hidden" }}>
@@ -74,7 +78,9 @@ const Card = ({ id, studie }: {id: number, studie: IStudies}) => {
             justify="space-between"
           >
             <Grid item>
-              <Typography gutterBottom>{studie.credit.toFixed(1)} stp.</Typography>
+              <Typography gutterBottom>
+                {studie.credit.toFixed(1)} stp.
+              </Typography>
             </Grid>
             <Grid item>
               <Typography>avg: {studie.average.toFixed(1)}</Typography>

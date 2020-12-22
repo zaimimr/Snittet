@@ -60,6 +60,11 @@ theme.overrides = {
       backdropFilter: "blur(12px);",
     },
   },
+  MuiFormLabel: {
+    root: {
+      color: theme.palette.text.primary,
+    },
+  },
 };
 
 export default theme;

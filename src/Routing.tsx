@@ -1,3 +1,4 @@
+import { Grid } from "@material-ui/core";
 import React from "react";
 import { Route, Switch } from "react-router";
 import { BrowserRouter as Router, Switch as DomSwitch } from "react-router-dom";
@@ -15,6 +16,7 @@ function Routing() {
           position: "absolute",
           top: 25,
           left: 25,
+          borderRadius: 15,
         }}
       />
       <Router>
@@ -26,25 +28,31 @@ function Routing() {
           </Switch>
         </DomSwitch>
       </Router>
-      <div
-        style={{
-          fontSize: "12px",
-          position: "absolute",
-          bottom: 10,
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-        }}
+      <Grid
+        alignItems="center"
+        container
+        direction="column"
+        justify="center"
       >
-        Laget av:{" "}
-        <a
-          href="https://github.com/Zenjjim"
-          rel="noopener noreferrer"
-          style={{ textDecoration: "none", color: "white" }}
-          target="_blank"
-        >
-          @Zenjjim
-        </a>
-      </div>
+        <Grid item>
+          <div
+            style={{
+              fontSize: "12px",
+              marginTop: "3em"
+            }}
+          >
+            Laget av:{" "}
+            <a
+              href="https://github.com/Zenjjim"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none", color: "white" }}
+              target="_blank"
+            >
+              @Zenjjim
+            </a>
+          </div>
+        </Grid>
+      </Grid>
     </>
   );
 }

@@ -2,7 +2,6 @@ import { Grid, Typography } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { useSetStudies } from "contexts/StudiesContext";
 import React, { useEffect, useState } from "react";
-import { grades } from "utils/const";
 import { IStudies } from "utils/types";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -78,11 +77,6 @@ const GradeCircle = () => {
       <Grid item>
         <Typography
           align="center"
-          style={{
-            color:
-              // @ts-ignore
-              grades.find((g) => g.grade === currentGradeLetter)?.color,
-          }}
           variant={"h2"}
         >
           {currentGradeLetter}

@@ -56,12 +56,7 @@ theme.overrides = {
     },
     paper: {
       background: "rgba(24, 24, 24, 0.9)",
-      border: "1px solid rgba(25, 25, 25, 0.3)",
       backdropFilter: "blur(12px);",
-    },
-    popper: {
-      background: "transparent",
-      backgroundColor: "transparent",
     },
   },
   MuiFormLabel: {

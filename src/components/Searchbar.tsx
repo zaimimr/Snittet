@@ -13,12 +13,13 @@ const Searchbar = () => {
   const [loading, setLoading] = useState(false);
 
   const searchStudie = async (text: string) => {
-    setLoading(true);
-    const results: IMinStudy[] = await getStudies(text);
-    // @ts-ignore
-    setSearch(results);
-
-    setLoading(false);
+    if (text !== null && text.length > 1) {
+      setLoading(true);
+      const results: IMinStudy[] = await getStudies(text);
+      // @ts-ignore
+      setSearch(results);
+      setLoading(false);
+    }
   };
 
   const addStudie = (text: string | null) => {

@@ -38,7 +38,11 @@ function Routing() {
           <div
             style={{
               fontSize: "12px",
-              marginTop: "3em"
+              position: "absolute",
+              left: "50%",
+              bottom: 20,
+              paddingTop: 20,
+              transform: "translate(-50%, -50%)",
             }}
           >
             Laget av:{" "}

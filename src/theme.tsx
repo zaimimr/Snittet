@@ -7,7 +7,7 @@ const theme = createMuiTheme({
       main: "#4EB9B6",
     },
     error: {
-      main: "#FF2E4D",
+      main: "#C70039",
     },
     text: {
       primary: "#F2F2F2",
@@ -58,6 +58,10 @@ theme.overrides = {
       background: "rgba(24, 24, 24, 0.9)",
       border: "1px solid rgba(25, 25, 25, 0.3)",
       backdropFilter: "blur(12px);",
+    },
+    popper: {
+      background: "transparent",
+      backgroundColor: "transparent",
     },
   },
   MuiFormLabel: {

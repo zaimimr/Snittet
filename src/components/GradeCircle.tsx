@@ -3,6 +3,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { useSetStudies } from "contexts/StudiesContext";
 import React, { useEffect, useState } from "react";
 import { IStudies } from "utils/types";
+import { scoreToGrade } from "utils/utils";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -18,6 +19,13 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     grades: {
       marginTop: "3em",
+    },
+    shadow: {
+      width: "200px",
+      height: "10px",
+      backgroundColor: "#1C1C1C",
+      borderRadius: "50%",
+      filter: "blur(15px)",
     },
   })
 );
@@ -42,47 +50,33 @@ const GradeCircle = () => {
       });
     }
     const averageGrade = sumOfGrades / sumOfStudyPoints || 0.0;
-    if (averageGrade >= 4.5) {
-      setCurrentGradeLetter("A");
-    } else if (averageGrade < 4.5 && averageGrade >= 3.5) {
-      setCurrentGradeLetter("B");
-    } else if (averageGrade < 3.5 && averageGrade >= 2.5) {
-      setCurrentGradeLetter("C");
-    } else if (averageGrade < 2.5 && averageGrade >= 1.5) {
-      setCurrentGradeLetter("D");
-    } else if (averageGrade < 1.5 && averageGrade >= 0.5) {
-      setCurrentGradeLetter("E");
-    } else if (averageGrade < 0.5) {
-      setCurrentGradeLetter("F");
-    } else {
-      setCurrentGradeLetter("-");
-    }
+    setCurrentGradeLetter(scoreToGrade(averageGrade));
     setCurrentGrade(averageGrade);
   }, [studies]);
 
   return (
-    <Grid
-      alignItems="center"
-      className={classes.root}
-      container
-      direction="column"
-      item
-      justify="center"
-    >
-      <Grid className={classes.grades} item>
-        <Typography align="center" variant={"h1"}>
-          {currentGrade.toFixed(1)}
-        </Typography>
+    <>
+      <Grid
+        alignItems="center"
+        className={classes.root}
+        container
+        direction="column"
+        item
+        justify="center"
+      >
+        <Grid className={classes.grades} item>
+          <Typography align="center" variant={"h1"}>
+            {currentGrade.toFixed(1)}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography align="center" variant={"h2"}>
+            {currentGradeLetter}
+          </Typography>
+        </Grid>
       </Grid>
-      <Grid item>
-        <Typography
-          align="center"
-          variant={"h2"}
-        >
-          {currentGradeLetter}
-        </Typography>
-      </Grid>
-    </Grid>
+      <div className={classes.shadow} />
+    </>
   );
 };
 

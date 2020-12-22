@@ -6,3 +6,8 @@ export type IStudies = {
     average: number;
     currentGrade: number | null;
   };
+
+  export type IMinStudy = {
+    code: string;
+    norwegian_name: string;
+  };

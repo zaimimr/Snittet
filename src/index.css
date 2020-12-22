@@ -21,6 +21,10 @@
 	}
 }
 
+html, body { 
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
@@ -28,7 +32,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #f2f2f2;
   padding: 100px 0;
-  height: 80vh;
+  min-height: 100%;
+  height: 100%;
+
 }
 body {
 	background: linear-gradient(-45deg, #645f15, #6d1060, #0f6e91, #15866c);

@@ -1,6 +1,8 @@
-import firebase from "firebase";
+import 'firebase/firestore'
 
-const firebaseApp = firebase.initializeApp({
+import firebase from "firebase/app";
+
+firebase.initializeApp({
   apiKey: process.env.REACT_APP_FIRE_API_KEY,
   authDomain: "snittet-49dac.firebaseapp.com",
   projectId: "snittet-49dac",
@@ -10,6 +12,6 @@ const firebaseApp = firebase.initializeApp({
   measurementId: "G-TM9Z0EC35S",
 });
 
-const db = firebaseApp.firestore();
+const db = firebase.firestore();
 
 export { db };

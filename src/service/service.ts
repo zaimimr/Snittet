@@ -1,6 +1,8 @@
 import axios from "axios";
 import { db } from "service/firebase";
 
+import { IMinStudy } from './../utils/types';
+
 export const post = (code: string, name: string) => {
   db.collection("Subjects")
     .doc()
@@ -14,15 +16,10 @@ export const post = (code: string, name: string) => {
     });
 };
 
-export type IMinStudy = {
-  code: string;
-  norwegian_name: string;
-};
-
-export const getStudies = (keyword: string) => {
+export const getStudies = async (keyword: string) => {
   const studies: IMinStudy[] = [];
 
-  db
+  await db
     .collection("Subjects")
     .where("code", ">=", keyword)
     .where("code", "<", keyword + `z`)
@@ -31,14 +28,19 @@ export const getStudies = (keyword: string) => {
     .get()
     .then((data) => {
       data.docs.map((doc) => {
-        studies.push(doc.data() as IMinStudy);
+        const d = doc.data();
+        studies.push({
+          code: d.code,
+          norwegian_name: d.norwegian_name,
+        } as IMinStudy);
       });
     })
     .catch(function (error) {
       // eslint-disable-next-line no-console
       console.log("Error getting document:", error);
-    })
-   return studies 
+    });
+
+  return studies;
 };
 
 export const getStudie = (code: string) => {

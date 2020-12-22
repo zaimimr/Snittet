@@ -4,6 +4,7 @@ import ClearIcon from "@material-ui/icons/Clear";
 import { useSetStudies } from "contexts/StudiesContext";
 import React from "react";
 import { IStudies } from "utils/types";
+import { scoreToGrade } from "utils/utils";
 
 import GradePicker from "./GradePicker";
 
@@ -26,6 +27,14 @@ const useStyles = makeStyles((theme: Theme) =>
         cursor: "pointer",
         color: "#4EB9B6",
       },
+    },
+    shadow: {
+      width: "100%",
+      height: "10px",
+      backgroundColor: "#1C1C1C",
+      borderRadius: "50%",
+      marginTop: "5px",
+      filter: "blur(15px)",
     },
   })
 );
@@ -61,7 +70,7 @@ const Card = ({ id, studie }: { id: number; studie: IStudies }) => {
             </Grid>
             <Grid item>
               <Typography>
-                {studie.taught_in_autumn ? "Høst" : "Vår" }
+                {studie.taught_in_autumn ? "Høst" : "Vår"}
               </Typography>
             </Grid>
           </Grid>
@@ -83,12 +92,15 @@ const Card = ({ id, studie }: { id: number; studie: IStudies }) => {
               </Typography>
             </Grid>
             <Grid item>
-              <Typography>avg: {studie.average.toFixed(1)}</Typography>
+              <Typography>
+                avg: {studie.average.toFixed(1)}, {scoreToGrade(studie.average)}
+              </Typography>
             </Grid>
           </Grid>
           <GradePicker id={id} studie={studie} />
         </Grid>
       </Paper>
+      <div className={classes.shadow} />
     </Grid>
   );
 };

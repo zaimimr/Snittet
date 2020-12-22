@@ -1,4 +1,5 @@
 import { ThemeProvider } from "@material-ui/core";
+import { SnackbarProvider } from "contexts/SnackbarContext";
 import { StudieProvider } from "contexts/StudiesContext";
 import React from "react";
 import { CookiesProvider } from "react-cookie";
@@ -8,9 +9,11 @@ function Provider({ children }: { children: React.ReactNode }) {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <CookiesProvider>
-          <StudieProvider>{children}</StudieProvider>
-        </CookiesProvider>
+        <SnackbarProvider>
+          <CookiesProvider>
+            <StudieProvider>{children}</StudieProvider>
+          </CookiesProvider>
+        </SnackbarProvider>
       </ThemeProvider>
     </>
   );

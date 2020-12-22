@@ -4,3 +4,4 @@ package-lock.json
 yarn-error.log
 .eslintcache
 .env
+build

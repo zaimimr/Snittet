@@ -5,6 +5,7 @@ import Searchbar from "components/Searchbar";
 import { useSetStudies } from "contexts/StudiesContext";
 import React, { useEffect } from "react";
 import { useCookies } from "react-cookie";
+import { IStudies } from "utils/types";
 
 const Landing = () => {
   const [studies, setStudies] = useSetStudies();

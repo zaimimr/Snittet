@@ -3,6 +3,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { useSetStudies } from "contexts/StudiesContext";
 import React from "react";
 import { grades } from "utils/const";
+import { IStudies } from "utils/types";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

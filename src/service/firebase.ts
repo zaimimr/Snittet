@@ -3,7 +3,7 @@ import 'firebase/firestore'
 import firebase from "firebase/app";
 
 firebase.initializeApp({
-  apiKey: process.env.REACT_APP_FIRE_API_KEY,
+  apiKey: "AIzaSyDIrKiNgeeXiIuvGivIaVStwTZQmSVzV3A",
   authDomain: "snittet-49dac.firebaseapp.com",
   projectId: "snittet-49dac",
   storageBucket: "snittet-49dac.appspot.com",

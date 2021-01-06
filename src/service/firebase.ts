@@ -1,4 +1,5 @@
-import 'firebase/firestore'
+import "firebase/analytics";
+import "firebase/firestore";
 
 import firebase from "firebase/app";
 
@@ -12,6 +13,6 @@ firebase.initializeApp({
   measurementId: "G-TM9Z0EC35S",
 });
 
-const db = firebase.firestore();
 firebase.analytics();
+const db = firebase.firestore();
 export { db };

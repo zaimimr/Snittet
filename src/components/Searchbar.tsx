@@ -27,7 +27,7 @@ const Searchbar = () => {
       const code = text.split("-")[0].trim();
       getStudie(code).then((res) => {
         if (!studies.some((studie: IStudies) => studie.code === code)) {
-          setStudies([
+          const addedStudies = [
             ...studies,
             {
               code: res.data.code,
@@ -37,7 +37,19 @@ const Searchbar = () => {
               average: res.data.average,
               currentGrade: null,
             },
-          ]);
+          ];
+          const sortedStudies = addedStudies.sort((a, b) => {
+            const codeA = a.code.toUpperCase();
+            const codeB = b.code.toUpperCase();
+            if (codeA < codeB) {
+              return -1;
+            }
+            if (codeA > codeB) {
+              return 1;
+            }
+            return 0;
+          });
+          setStudies(sortedStudies);
         } else {
           showSnackbar("error", "Faget er allerede lagt til");
         }
@@ -59,7 +71,7 @@ const Searchbar = () => {
         <TextField
           {...params}
           InputProps={{ ...params.InputProps, type: "input" }}
-          label="Finn fag"
+          label="Finn fagkode"
           margin="normal"
           style={{ width: "350px" }}
           variant="outlined"

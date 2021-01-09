@@ -12,7 +12,7 @@ const Landing = () => {
   const [cookies, setCookie] = useCookies(["studies"]);
 
   useEffect(() => {
-    setCookie("studies", studies);
+    setCookie("studies", studies, { maxAge: 3200000000 });
   }, [studies]);
 
   useEffect(() => {

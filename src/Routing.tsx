@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core";
+import { Grid, Link } from "@material-ui/core";
 import React from "react";
 import { Route, Switch } from "react-router";
 import { BrowserRouter as Router, Switch as DomSwitch } from "react-router-dom";
@@ -19,6 +19,25 @@ function Routing() {
           borderRadius: 15,
         }}
       />
+      <div
+        style={{
+          width: "50px",
+          height: "50px",
+          position: "absolute",
+          top: 25,
+          right: 25,
+          borderRadius: 5,
+          transform: "translate(-50%, 0)",
+        }}
+      >
+        <Link
+          color="textPrimary"
+          variant="body1"
+          href="https://https://fsweb.no/studentweb/index.jsf?inst=FSNTNU"
+        >
+          StudWeb
+        </Link>
+      </div>
       <Router>
         <DomSwitch>
           <Switch>
@@ -28,12 +47,7 @@ function Routing() {
           </Switch>
         </DomSwitch>
       </Router>
-      <Grid
-        alignItems="center"
-        container
-        direction="column"
-        justify="center"
-      >
+      <Grid alignItems="center" container direction="column" justify="center">
         <Grid item>
           <div
             style={{
@@ -41,14 +55,13 @@ function Routing() {
               paddingTop: 20,
             }}
           >
-            Laget av:{" "}
             <a
               href="https://github.com/Zenjjim"
               rel="noopener noreferrer"
               style={{ textDecoration: "none", color: "white" }}
               target="_blank"
             >
-              @Zenjjim
+              Laget av Zenjjim med ♥
             </a>
           </div>
         </Grid>

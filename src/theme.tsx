@@ -43,7 +43,6 @@ theme.overrides = {
     body1: {
       fontSize: "16px",
       lineHeight: "20px",
-      fontWeight: "bold",
     },
   },
   // @ts-ignore

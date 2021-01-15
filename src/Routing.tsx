@@ -32,7 +32,7 @@ function Routing() {
       >
         <Link
           color="textPrimary"
-          href="https://https://fsweb.no/studentweb/index.jsf?inst=FSNTNU"
+          href="https://fsweb.no/studentweb/index.jsf?inst=FSNTNU"
           variant="body1"
         >
           StudWeb

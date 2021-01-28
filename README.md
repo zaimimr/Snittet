@@ -14,8 +14,8 @@ For lazy search er det brukt Firebase cloud functions som årlig henter alle fag
 - [ ] Implementer godkjent/ikke godkjent karakter skala
 - [ ] Implementer oversikt over karakter fordeling til ethvert fag
 - [ ] Implementer ønskelig global lagring av data ved innlogging
-- [ ] Oversikt over total studiepoeng
-- [ ] Fikse Grid for IPad
+- [x] Oversikt over total studiepoeng
+- [x] Fikse Grid for IPad
 
 ---
 Ved ønsker om funksjonalitet lag gjerne en issue eller PR. 

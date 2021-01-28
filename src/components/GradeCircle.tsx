@@ -36,6 +36,7 @@ const GradeCircle = () => {
   const [studies] = useSetStudies();
 
   const [currentGrade, setCurrentGrade] = useState(0.0);
+  const [currentStudyPoints, setCurrentStudyPoints] = useState(0.0);
   const [currentGradeLetter, setCurrentGradeLetter] = useState("-");
 
   useEffect(() => {
@@ -52,6 +53,7 @@ const GradeCircle = () => {
     const averageGrade = sumOfGrades / sumOfStudyPoints || 0.0;
     setCurrentGradeLetter(scoreToGrade(averageGrade));
     setCurrentGrade(averageGrade);
+    setCurrentStudyPoints(sumOfStudyPoints)
   }, [studies]);
 
   return (
@@ -72,6 +74,11 @@ const GradeCircle = () => {
         <Grid item>
           <Typography align="center" variant={"h2"}>
             {currentGradeLetter}
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Typography align="center">
+            {`${currentStudyPoints} stp.`}
           </Typography>
         </Grid>
       </Grid>

@@ -25,7 +25,11 @@ const GradePicker = ({ id, studie }: { id: number; studie: IStudies }) => {
 
   const pickGrade = (score: number) => {
     const newStudies = [...studies];
-    newStudies[id] = { ...studie, currentGrade: score };
+    if (newStudies[id].currentGrade === score) {
+      newStudies[id] = { ...studie, currentGrade: null };
+    } else {
+      newStudies[id] = { ...studie, currentGrade: score };
+    }
     setStudies(newStudies);
   };
 

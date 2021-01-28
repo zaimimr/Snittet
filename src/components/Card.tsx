@@ -50,7 +50,7 @@ const Card = ({ id, studie }: { id: number; studie: IStudies }) => {
   };
 
   return (
-    <Grid item lg={3} md={4}>
+    <Grid item lg={3} md={4} sm={6}>
       <Paper className={classes.root}>
         <Grid container spacing={1}>
           <div className={classes.clear} onClick={() => clearStudie()}>

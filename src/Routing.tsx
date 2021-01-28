@@ -61,7 +61,7 @@ function Routing() {
               style={{ textDecoration: "none", color: "white" }}
               target="_blank"
             >
-              Laget av Zenjjim med ♥
+              Laget med 💗 av Zenjjim 
             </a>
           </div>
         </Grid>

@@ -46,8 +46,8 @@ const Landing = () => {
                 <Card id={index} key={index} studie={studie} />
               ))
             ) : (
-              <Typography color="error">Ingen fag er valgt</Typography>
-            )}
+                <Typography color="error">Ingen fag er valgt</Typography>
+              )}
           </Grid>
         </Grid>
       </Container>

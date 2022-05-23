@@ -30,3 +30,15 @@ export const grades = [
       score: 5,
     },
   ];
+  export const pass = [
+    {
+      grade: "Stryk",
+      color: "rgba(232,114,112",
+      score: "fail",
+    },
+    {
+      grade: "Godkjent",
+      color: "rgba(121,195,82",
+      score: "pass",
+    },
+  ];

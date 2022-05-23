@@ -42,18 +42,24 @@ const GradeCircle = () => {
   useEffect(() => {
     let sumOfGrades = 0.0;
     let sumOfStudyPoints = 0;
+    let sumOfStudyPointsTotal = 0;
     if (studies.length) {
       studies.forEach((studie: IStudies) => {
         if (studie.currentGrade) {
-          sumOfGrades += studie.currentGrade * studie.credit;
-          sumOfStudyPoints += studie.credit;
+          if (studie.grade) {
+            if (typeof studie.currentGrade === 'number') {
+              sumOfGrades += studie.currentGrade * studie.credit;
+              sumOfStudyPoints += studie.credit;
+            }
+          }
+          sumOfStudyPointsTotal += studie.credit;
         }
       });
     }
     const averageGrade = sumOfGrades / sumOfStudyPoints || 0.0;
     setCurrentGradeLetter(scoreToGrade(averageGrade));
     setCurrentGrade(averageGrade);
-    setCurrentStudyPoints(sumOfStudyPoints)
+    setCurrentStudyPoints(sumOfStudyPointsTotal)
   }, [studies]);
 
   return (

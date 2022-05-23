@@ -14,7 +14,14 @@ const StudyContext = React.createContext<Context>({
 export const useSetStudies = () => React.useContext(StudyContext).useSetStudies;
 
 export function StudieProvider({ children }: { children: React.ReactNode }) {
-  const [studies, setStudies] = React.useState<IStudies[]>([]);
+  const [studies, setStudiesState] = React.useState<IStudies[]>([]);
+
+  const setStudies = (studies: IStudies[]) => {
+    localStorage.setItem("studies", JSON.stringify(studies))
+
+    setStudiesState(studies)
+  }
+
   const studyContext = {
     useSetStudies: [studies, setStudies],
   };

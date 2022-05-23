@@ -4,20 +4,15 @@ import GradeCircle from "components/GradeCircle";
 import Searchbar from "components/Searchbar";
 import { useSetStudies } from "contexts/StudiesContext";
 import React, { useEffect } from "react";
-import { useCookies } from "react-cookie";
 import { IStudies } from "utils/types";
 
 const Landing = () => {
   const [studies, setStudies] = useSetStudies();
-  const [cookies, setCookie] = useCookies(["studies"]);
 
   useEffect(() => {
-    setCookie("studies", studies, { maxAge: 3200000000 });
-  }, [studies]);
-
-  useEffect(() => {
-    if (cookies.studies) {
-      setStudies(cookies.studies);
+    const storage_studies = localStorage.getItem("studies")
+    if (storage_studies) {
+      setStudies(JSON.parse(storage_studies))
     }
   }, []);
 

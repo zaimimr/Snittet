@@ -1,6 +1,7 @@
 import { Grid, Paper, Typography } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import ClearIcon from "@material-ui/icons/Clear";
+import SwapHorizIcon from '@material-ui/icons/SwapHoriz';
 import { useSetStudies } from "contexts/StudiesContext";
 import React from "react";
 import { IStudies } from "utils/types";
@@ -17,6 +18,16 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: 12,
       position: "relative",
       border: "1px solid rgba(255, 255, 255, 0.3)",
+    },
+    switch: {
+      color: theme.palette.primary.light,
+      position: "absolute",
+      right: 20,
+      top: 0,
+      "&:hover": {
+        cursor: "pointer",
+        color: "#4EB9B6",
+      },
     },
     clear: {
       color: theme.palette.error.main,
@@ -48,11 +59,19 @@ const Card = ({ id, studie }: { id: number; studie: IStudies }) => {
     newStudies.splice(id, 1);
     setStudies(newStudies);
   };
+  const swapStudieGrade = () => {
+      const newStudies = [...studies];
+      newStudies[id] = { ...studie, grade: !studie.grade, currentGrade: null };
+      setStudies(newStudies);
+  };
 
   return (
     <Grid item lg={3} md={4} sm={6}>
       <Paper className={classes.root}>
         <Grid container spacing={1}>
+          <div className={classes.switch} onClick={() => swapStudieGrade()}>
+            <SwapHorizIcon />
+          </div>
           <div className={classes.clear} onClick={() => clearStudie()}>
             <ClearIcon />
           </div>
@@ -97,7 +116,7 @@ const Card = ({ id, studie }: { id: number; studie: IStudies }) => {
               </Typography>
             </Grid>
           </Grid>
-          <GradePicker id={id} studie={studie} />
+            <GradePicker id={id} studie={studie} />
         </Grid>
       </Paper>
       <div className={classes.shadow} />

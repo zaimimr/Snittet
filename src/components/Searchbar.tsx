@@ -35,6 +35,7 @@ const Searchbar = () => {
               credit: res.data.credit,
               taught_in_autumn: res.data.taught_in_autumn,
               average: res.data.average,
+              grade: true,
               currentGrade: null,
             },
           ];

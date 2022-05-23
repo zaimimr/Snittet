@@ -4,7 +4,8 @@ export type IStudies = {
     taught_in_autumn: boolean;
     credit: number;
     average: number;
-    currentGrade: number | null;
+    grade: boolean;
+    currentGrade: number | null | "fail" | "pass";
   };
 
   export type IMinStudy = {

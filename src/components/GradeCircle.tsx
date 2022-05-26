@@ -45,14 +45,16 @@ const GradeCircle = () => {
     let sumOfStudyPointsTotal = 0;
     if (studies.length) {
       studies.forEach((studie: IStudies) => {
-        if (studie.currentGrade) {
+        if (studie.currentGrade !== null) {
           if (studie.grade) {
             if (typeof studie.currentGrade === 'number') {
               sumOfGrades += studie.currentGrade * studie.credit;
               sumOfStudyPoints += studie.credit;
             }
           }
-          sumOfStudyPointsTotal += studie.credit;
+          if (studie.currentGrade !== 0 && studie.currentGrade !== "fail") {
+            sumOfStudyPointsTotal += studie.credit;
+          }
         }
       });
     }
@@ -74,12 +76,12 @@ const GradeCircle = () => {
       >
         <Grid className={classes.grades} item>
           <Typography align="center" variant={"h1"}>
-            {currentGrade.toFixed(1)}
+            {currentGradeLetter}
           </Typography>
         </Grid>
         <Grid item>
           <Typography align="center" variant={"h2"}>
-            {currentGradeLetter}
+            {currentGrade.toFixed(2)}
           </Typography>
         </Grid>
         <Grid item>

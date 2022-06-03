@@ -1,7 +1,13 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "react", "react-hooks", "babel", "simple-import-sort"],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "babel",
+    "simple-import-sort"
+  ],
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module"
@@ -12,7 +18,11 @@
     "es6": true,
     "jest": true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "globals": {
     "importScripts": true
   },
@@ -80,6 +90,7 @@
     "simple-import-sort/imports": "warn",
     "sort-imports": "off",
     "import/order": "off",
+    "quotes": [2, "double", "avoid-escape"],
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "valid-jsdoc": "off"

@@ -1,7 +1,7 @@
 import { Grid, Paper, Typography } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import ClearIcon from "@material-ui/icons/Clear";
-import SwapHorizIcon from '@material-ui/icons/SwapHoriz';
+import SwapHorizIcon from "@material-ui/icons/SwapHoriz";
 import { useSetStudies } from "contexts/StudiesContext";
 import React from "react";
 import { IStudies } from "utils/types";

@@ -1,5 +1,5 @@
 import { TextField } from "@material-ui/core";
-import { Autocomplete } from "@material-ui/lab";
+import { Autocomplete, AutocompleteInputChangeReason } from "@material-ui/lab";
 import useSnackbar from "contexts/SnackbarContext";
 import { useSetStudies } from "contexts/StudiesContext";
 import React, { useState } from "react";
@@ -9,8 +9,18 @@ import { IMinStudy, IStudies } from "utils/types";
 const Searchbar = () => {
   const [studies, setStudies] = useSetStudies();
   const { showSnackbar } = useSnackbar();
+  const [inputValue, setInputValue] = useState<string>("");
   const [search, setSearch] = useState<IMinStudy[]>([]);
   const [loading, setLoading] = useState(false);
+
+  const handleInputChange = async (newValue: string, reason: AutocompleteInputChangeReason) => {
+    if (reason === "reset") {
+      setInputValue("");
+      return;
+    }
+    setInputValue(newValue);
+    searchStudie(newValue.toUpperCase());
+  };
 
   const searchStudie = async (text: string) => {
     if (text !== null && text.length > 1) {
@@ -62,9 +72,10 @@ const Searchbar = () => {
     <Autocomplete
       clearOnBlur
       freeSolo
+      inputValue={inputValue}
       loading={loading}
-      onChange={(e, value) => addStudie(value)}
-      onInputChange={(e, value) => searchStudie(value.toUpperCase())}
+      onChange={(_e, value) => addStudie(value)}
+      onInputChange={(_e, value, reason) => handleInputChange(value, reason)}
       options={search.map(
         (option: IMinStudy) => `${option.code} - ${option.norwegian_name}`
       )}

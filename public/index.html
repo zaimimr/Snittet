@@ -7,7 +7,11 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="NTNU Snittkalkulator"
-      content="NTNU snittkalkulator. Automatisk henting av fag fra NTNU for enkel beregning av ditt snitt. "
+      content="NTNU snittkalkulator. Enkel og intuitiv snittkalkulator for NTNU studenter med vakre farger og kule animasjoner."
+    />
+    <meta
+      name="description"
+      content="NTNU snittkalkulator. Enkel og intuitiv snittkalkulator for NTNU studenter med vakre farger og kule animasjoner."
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/android-chrome-192x192.png" />
     <!--
@@ -33,9 +37,24 @@
 
         gtag('config', 'G-W6M7P7B6Z5');
       </script>
-    <title>Snittet</title>
+    <title>NTNU Snittkalkulator</title>
   </head>
   <body>
+    <title>NTNU Snittkalkulator</title>
+    <div style="position: absolute; top: 0; margin: 25px 0 0 0; display: flex; align-items:center; justify-content:space-between; width: 100%;">
+      <div style="display: flex; align-items:center; gap: 10px; margin-left: 25px">
+        <img
+        alt="NTNU Snittkalkulator Logo"
+        src="SnittetLogo.png"
+        style="width: 50px; height: 50px; border-radius: 15;"
+        />
+        <h1 style="font-size: 18px; font-weight: normal;">NTNU Snittkalkulator</h1>
+      </div>
+      
+      <a href="https://fsweb.no/studentweb/index.jsf?inst=FSNTNU" target="_blank" rel="noopener noreferrer" style="margin-right: 25px; text-decoration: none; color: white;">
+        StudentWeb
+      </a>
+    </div>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="/__/firebase/8.2.1/firebase-app.js"></script>
 
@@ -47,15 +66,5 @@
     <script src="/__/firebase/init.js"></script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>

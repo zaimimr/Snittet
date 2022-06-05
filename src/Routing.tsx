@@ -1,43 +1,12 @@
-import { Grid, Link } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import React from "react";
 import { Route, Switch } from "react-router";
 import { BrowserRouter as Router, Switch as DomSwitch } from "react-router-dom";
-import logo from "SnittetLogo.png";
 import Landing from "views/Landing";
 function Routing() {
   return (
     <>
-      <img
-        alt="logo"
-        src={logo}
-        style={{
-          width: "50px",
-          height: "50px",
-          position: "absolute",
-          top: 25,
-          left: 25,
-          borderRadius: 15,
-        }}
-      />
-      <div
-        style={{
-          width: "50px",
-          height: "50px",
-          position: "absolute",
-          top: 25,
-          right: 25,
-          borderRadius: 5,
-          transform: "translate(-50%, 0)",
-        }}
-      >
-        <Link
-          color="textPrimary"
-          href="https://fsweb.no/studentweb/index.jsf?inst=FSNTNU"
-          variant="body1"
-        >
-          StudWeb
-        </Link>
-      </div>
+ 
       <Router>
         <DomSwitch>
           <Switch>

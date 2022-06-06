@@ -1,7 +1,7 @@
 import axios from "axios";
 import { db } from "service/firebase";
 
-import { IMinStudy } from './../utils/types';
+import { IMinStudy } from "./../utils/types";
 
 export const post = (code: string, name: string) => {
   db.collection("Subjects")
@@ -22,7 +22,7 @@ export const getStudies = async (keyword: string) => {
   await db
     .collection("Subjects")
     .where("code", ">=", keyword)
-    .where("code", "<", keyword + `z`)
+    .where("code", "<", keyword + "z")
     .orderBy("code", "asc")
     .limit(5)
     .get()

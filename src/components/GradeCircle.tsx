@@ -47,7 +47,7 @@ const GradeCircle = () => {
       studies.forEach((studie: IStudies) => {
         if (studie.currentGrade !== null) {
           if (studie.grade) {
-            if (typeof studie.currentGrade === 'number') {
+            if (typeof studie.currentGrade === "number") {
               sumOfGrades += studie.currentGrade * studie.credit;
               sumOfStudyPoints += studie.credit;
             }

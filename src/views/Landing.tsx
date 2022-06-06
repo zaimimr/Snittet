@@ -5,15 +5,20 @@ import Searchbar from "components/Searchbar";
 import { useSetStudies } from "contexts/StudiesContext";
 import React, { useEffect } from "react";
 import { IStudies } from "utils/types";
+import useSnackbar from "contexts/SnackbarContext";
 
 const Landing = () => {
   const [studies, setStudies] = useSetStudies();
+  const { showSnackbar } = useSnackbar();
+  
+
 
   useEffect(() => {
     const storage_studies = localStorage.getItem("studies")
     if (storage_studies) {
       setStudies(JSON.parse(storage_studies))
     }
+    showSnackbar("error", "Snitt kalkulator fungerer for øyeblikket ikke pga problemer https://grades.no. Prøv gjerne igjen om et par dager")
   }, []);
 
   return (

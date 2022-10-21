@@ -11,7 +11,7 @@ Applikasjonen bruker [grades.no](https://grades.no) apiet, for å hente ut infor
 For lazy search er det brukt Firebase cloud functions som årlig henter alle fag koder og -navn til firestore. Dette er gjort fordi [grades.no](https://grades.no) apiet ikke har lazy-søkefunksjonalitet for fagene. 
 
 ## Future roadmap:
-- [ ] Implementer godkjent/ikke godkjent karakter skala
+- [x] Implementer godkjent/ikke godkjent karakter skala
 - [ ] Implementer oversikt over karakter fordeling til ethvert fag
 - [ ] Implementer ønskelig global lagring av data ved innlogging
 - [x] Oversikt over total studiepoeng

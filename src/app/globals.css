@@ -18,10 +18,13 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  padding: 100px 0;
+  min-height: 100%;
+  height: 100%;
+}
+
+body {
+	background: linear-gradient(-45deg, #645f15, #6d1060, #0f6e91, #15866c);
+	background-size: 400% 400%;
+	animation: gradient 5s ease infinite;
 }

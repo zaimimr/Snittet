@@ -11,40 +11,32 @@ Content-Length: 1216
     "begrensning": "*",
     "kodetekst": "N",
     "desimal_separator": ".",
-    "groupBy": [
-        "Emnekode",
-        "Karakter"
-    ],
-    "sortBy": [
-        "Emnekode",
-        "Karakter"
-    ],
-    "variabler": [
-        "*"
-    ],
+    "groupBy": ["Emnekode", "Karakter"],
+    "sortBy": ["Emnekode", "Karakter"],
+    "variabler": ["*"],
     "filter": [
         {
             "variabel": "Institusjonskode",
             "selection": {
                 "filter": "item",
-                "values": [
-                    "1150"
-                ],
-                "exclude": [
-                    ""
-                ]
+                "values": [1150],
+                "exclude": [""]
             }
         },
         {
             "variabel": "Årstall",
             "selection": {
                 "filter": "item",
-                "values": [
-                    2022
-                ],
-                "exclude": [
-                    ""
-                ]
+                "values": [2023],
+                "exclude": [""]
+            }
+        },
+        {
+            "variabel": "Semester",
+            "selection": {
+                "filter": "item",
+                "values": [1],
+                "exclude": [""]
             }
         }
     ]

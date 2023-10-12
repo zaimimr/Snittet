@@ -53,7 +53,16 @@ export const init = async () => {
     user_id uuid NOT NULL,
     course CHAR(20) REFERENCES course(id) ON DELETE CASCADE NOT NULL,
     is_grade BOOLEAN NOT NULL DEFAULT TRUE,
-    grade CHAR(2)
+    grade CHAR(2),
+    
+    UNIQUE (user_id, course)
+);`);
+
+  await sql.query(`CREATE TABLE IF NOT EXISTS global_message (
+  id SERIAL PRIMARY KEY,
+  message TEXT NOT NULL,
+  active BOOLEAN NOT NULL DEFAULT TRUE,
+  status TEXT NOT NULL DEFAULT 'info'
 );`);
 
   const ytop = 2;

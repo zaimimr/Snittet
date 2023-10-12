@@ -19,7 +19,7 @@ const SearchBar = ({ addUserCourse }: { addUserCourse: (arg0: ApiCourseType) => 
         <>
             <div className={`fixed inset-0 bg-black ${isActive ? 'bg-opacity-50' : 'bg-opacity-0'} ${isActive ? 'backdrop-blur-[4px]' : 'backdrop-blur-none'} ${isActive ? "z-10" : "z-0"} transition-opacity`} onClick={() => setIsActive(false)}></div>
             <div className="relative mt-10 mx-auto w-1/2 z-20">
-                <div className="relative flex justify-center p-4 bg-custom-radial border border-opacity-30 border-white rounded-xl shadow-md">
+                <div className="relative flex justify-center p-4 bg-custom-radial border border-opacity-30 border-white rounded shadow-md">
                     <svg
                         className="h-6 w-6 text-white"
                         fill="none"

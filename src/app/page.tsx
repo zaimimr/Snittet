@@ -11,11 +11,12 @@ export default async function Home() {
   const cookieStore = cookies()
   const user_id = cookieStore.get("user_id")
 
-  const data = await sql.query(`SELECT course, is_grade, grade, name, credits
+  const data = await sql.query(`SELECT user_course.id, course, is_grade, grade, name, credits
   FROM user_course
   LEFT JOIN course 
   ON user_course.course = course.id 
-  WHERE user_id = '${user_id?.value}'`)
+  WHERE user_id = '${user_id?.value}'
+  ORDER BY user_course.id ASC`)
 
   async function addUserCourse(course: ApiCourseType) {
     "use server"

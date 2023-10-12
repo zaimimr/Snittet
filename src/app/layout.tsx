@@ -2,7 +2,6 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Cookie from './cookie'
-import { type } from 'os'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
+      <body>
         {children}
       </body>
       <Cookie />

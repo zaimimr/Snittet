@@ -55,7 +55,7 @@ const GradeCircle = async () => {
                 {data?.letter_grade || ""}
             </div>
             <div className="text-center text-3xl">
-                {data?.average_grade || "Velg et fag or karakter"}
+                {data?.average_grade || "Velg et fag og karakter"}
             </div>
             <div className="text-center">
                 {`${data?.total_credits || ""} ${data?.total_credits ? "stp." : ""}`}

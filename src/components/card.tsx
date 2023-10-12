@@ -9,7 +9,6 @@ export default function Card({ course }: { course: ApiUserCourse_CourseType }) {
     const cookieStore = cookies()
     const user_id = cookieStore.get("user_id")
 
-
     async function deleteCard(course: ApiUserCourse_CourseType, user_id: string) {
         "use server"
         sql.query(`DELETE FROM user_course WHERE user_id = '${user_id}' AND course = '${course.course}'`)
@@ -24,7 +23,7 @@ export default function Card({ course }: { course: ApiUserCourse_CourseType }) {
 
     return (
         <div className="relative">
-            <div className="min-w-[20rem] w-full relative p-3 rounded-md bg-custom-radial border border-white border-opacity-30">
+            <div className="min-w-[20rem] max-w-[20rem] w-full relative p-3 rounded-md bg-custom-radial border border-white border-opacity-30">
                 <div className="absolute top-1 right-1 flex gap-1 " >
                     <div className="text-error-main hover:text-green-500 cursor-pointer" >
                         {
@@ -47,11 +46,8 @@ export default function Card({ course }: { course: ApiUserCourse_CourseType }) {
                 </div>
                 <h3 className="truncate text-4xl">{course.course}</h3>
                 <p className="truncate">{course.name}</p>
-                <div className="flex justify-between items-center">
+                <div className="flex items-center">
                     <p>{course.credits} stp.</p>
-                    <p>
-                        avg: unknown
-                    </p>
                 </div>
                 {
                     user_id &&

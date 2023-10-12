@@ -116,7 +116,8 @@ const getSPAndInsertIntoDB = async (ilist: any, ytop: any) => {
   );
   console.log(
     "StudyProgram: ",
-    [...new Set(studyProgram.map((item) => item.Studieprogramkode))].length
+    Array.from(new Set(studyProgram.map((item) => item.Studieprogramkode)))
+      .length
   );
   const stpQuery = chunk(studyProgram, 1000).map((chunk) => {
     return chunk
@@ -141,7 +142,7 @@ const getCoursesAndInsertIntoDB = async (ilist: any, ytop: any) => {
   const courses: CourseType[] = await getDbhData(courseBody, ilist, ytop);
   console.log(
     "Courses: ",
-    [...new Set(courses.map((item) => item.Emnekode))].length
+    Array.from(new Set(courses.map((item) => item.Emnekode))).length
   );
   const courseQuery = chunk(courses, 1000).map((chunk) => {
     return chunk
@@ -186,14 +187,14 @@ const gradeQuery = async (
     );
     console.log(
       "Grades: ",
-      [
-        ...new Set(
+      Array.from(
+        new Set(
           grades.map(
             (item) =>
               `${item.Årstall}, ${item.Semester}, ${item.Emnekode}, ${item.Karakter}`
           )
-        ),
-      ].length
+        )
+      ).length
     );
 
     const courseQuery = chunk(grades, 1000).map((chunk) => {

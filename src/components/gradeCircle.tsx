@@ -6,7 +6,7 @@ const GradeCircle = async () => {
 
     const cookieStore = cookies()
     const user_id = cookieStore.get("user_id")
-    const TotalGradeData = await sql.query(`
+    const TotalGradeData = user_id?.value ? await sql.query(`
     WITH GradeValues AS (
         SELECT 
             user_id,
@@ -47,18 +47,18 @@ const GradeCircle = async () => {
         total_credits
     FROM CalculatedGrades;
     
-    `)
+    `) : { rows: [] }
     const data = TotalGradeData.rows?.[0]
     return (
         <div className="flex flex-col items-center justify-center bg-custom-radial rounded-full w-64 h-64 relative shadow-md  border border-white border-opacity-30">
             <div className="mt-12 text-center text-8xl">
-                {data?.letter_grade}
+                {data?.letter_grade || ""}
             </div>
             <div className="text-center text-3xl">
-                {data?.average_grade}
+                {data?.average_grade || "Velg et fag or karakter"}
             </div>
             <div className="text-center">
-                {`${data?.total_credits} stp.`}
+                {`${data?.total_credits || ""} ${data?.total_credits ? "stp." : ""}`}
             </div>
             <div className="absolute bottom-0 w-48 h-2.5 bg-black rounded-full opacity-50 blur-md mt-2"></div>
         </div>

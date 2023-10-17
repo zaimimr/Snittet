@@ -9,9 +9,10 @@ import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Snittkalkulator for studenter',
   description: 'Regn ut snittet ditt på en enkel måte',
+  "google-adsense-account": "ca-pub-7050229813846454"
 }
 
 

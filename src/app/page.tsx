@@ -1,3 +1,4 @@
+import AdSense from "@/components/ads";
 import Card from "@/components/card";
 import GradeCircle from "@/components/gradeCircle";
 import SearchBar from "@/components/searchbar";
@@ -32,6 +33,7 @@ export default async function Home() {
         {data.rows.map((course: ApiUserCourse_CourseType, index: number) => (
           <Card key={index} course={course} />
         ))}
+        <AdSense adSlot="9152791702" />
       </div>
     </main>
   )

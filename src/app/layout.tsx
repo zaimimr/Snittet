@@ -5,6 +5,7 @@ import Cookie from './cookie'
 import Snackbar from '@/components/snackbar'
 import { sql } from '@vercel/postgres'
 import { cookies } from 'next/headers'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,6 +26,10 @@ export default async function RootLayout({
   const read_message_toast = cookieStore.get("read_message_toast")?.value?.split("-")
   return (
     <html lang="en">
+      <head>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7050229813846454"
+          crossOrigin="anonymous"></script>
+      </head>
       <body>
         {children}
         <div className="fixed top-4 left-4 flex flex-col gap-4">
@@ -40,6 +45,7 @@ export default async function RootLayout({
         </div>
       </body>
       <Cookie />
+
     </html>
   )
 }

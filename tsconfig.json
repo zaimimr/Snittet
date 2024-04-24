@@ -22,10 +22,10 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*"],
+      "_/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "environment.d.ts",
-    "vars.js", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "e2e", ".next"]
+  "include": ["next-env.d.ts", "environment.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/examples/val/example.val._ts"],
+  "exclude": ["node_modules", ".next"]
 }

@@ -52,8 +52,8 @@ export default function Select({}: SelectProps) {
       <AsyncSelect
         loadingMessage={() => 'Laster inn emner...'}
         loadOptions={promiseOptions}
-        noOptionsMessage={() => 'Ingen emne med denne koden'}
-        placeholder="Emnekode"
+        noOptionsMessage={() => 'Ingen emne med denne søketeksten.'}
+        placeholder="Søk etter Emnekode eller Emnenavn"
         value={null}
         classNames={{
           control: ({ isFocused }) =>

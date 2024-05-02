@@ -36,7 +36,7 @@ export default function Select({}: SelectProps) {
 
   const promiseOptions = (inputValue: string) =>
     new Promise<{ value: Avdelingskode; label: string }[]>(resolve => {
-      if (!inputValue || inputValue.length < 3) {
+      if (!inputValue || inputValue.length < 1) {
         resolve([]);
       }
       setTimeout(() => {

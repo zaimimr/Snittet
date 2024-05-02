@@ -3,6 +3,11 @@ const chunk = (arr: any[], size: number) =>
   Array.from({ length: Math.ceil(arr.length / size) }, (v, i) => arr.slice(i * size, i * size + size));
 
 export async function GET(req: Request) {
+  const { searchParams } = new URL(req.url);
+  const cron_secret = searchParams.get('cron_secret');
+  if (cron_secret !== process.env.CRON_SECRET) {
+    return Response.json({ data: 'Not authorized' });
+  }
   const dataCode = await fetch('https://dbh-data.dataporten-api.no/Tabeller/hentJSONTabellData', {
     method: 'POST',
     body: JSON.stringify(getCodeBody()),

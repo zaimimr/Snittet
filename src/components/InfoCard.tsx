@@ -15,10 +15,11 @@ export default function InfoCard() {
   const teller = validSubjects
     // @ts-ignore
     .map(s => s.Grade * s.Studiepoeng)
-    .reduce((a, b) => a + b, -1);
-  const nevner = validSubjects.map(s => s.Studiepoeng).reduce((a, b) => a + b, 1);
+    .reduce((a, b) => a + b, 0);
+  const nevner = validSubjects.map(s => s.Studiepoeng).reduce((a, b) => a + b, 0);
   const snitt = teller / nevner;
   const totalStudiepoeng = subjects.map(s => s.Studiepoeng).reduce((a, b) => a + b, 0);
+  console.log(teller, nevner, snitt, totalStudiepoeng);
   return (
     <Card className="flex w-full flex-col items-center justify-center">
       <HoverCard.Root>

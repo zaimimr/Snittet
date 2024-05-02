@@ -19,7 +19,6 @@ export default function InfoCard() {
   const nevner = validSubjects.map(s => s.Studiepoeng).reduce((a, b) => a + b, 0);
   const snitt = teller / nevner;
   const totalStudiepoeng = subjects.map(s => s.Studiepoeng).reduce((a, b) => a + b, 0);
-  console.log(teller, nevner, snitt, totalStudiepoeng);
   return (
     <Card className="flex w-full flex-col items-center justify-center">
       <HoverCard.Root>

@@ -12,53 +12,18 @@ export async function POST(req: Request) {
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const subject = searchParams.get('subject');
-  const limit = searchParams.get('limit') || undefined;
-  const institution = searchParams.get('institution') || undefined;
 
   if (!subject) {
     return Response.json([]);
   }
+  const input = `%${subject}%`;
+  const data = (
+    await sql`SELECT "Institusjonskode", "Institusjonsnavn", "Avdelingskode", "Avdelingsnavn", "Emnekode", "Emnenavn", "Studiepoeng" FROM subjects WHERE "Emnekode" ILIKE ${input} OR "Emnenavn" ILIKE ${input}  LIMIT 10;`
+  ).rows.map((item: any) => {
+    item.Studiepoeng = parseFloat(item.Studiepoeng);
+    item.Grade = null;
+    return { value: item, label: `${item.Emnekode} | ${item.Emnenavn}` };
+  });
 
-  const dataCode = await fetch('https://dbh-data.dataporten-api.no/Tabeller/hentJSONTabellData', {
-    method: 'POST',
-    body: JSON.stringify(getCodeBody(subject, institution, limit)),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }).then(res =>
-    res
-      .json()
-      .then(data => {
-        return data.map((item: any) => {
-          item.Studiepoeng = parseFloat(item.Studiepoeng);
-          item.Grade = null;
-          return { value: item, label: `${item.Emnekode} | ${item.Emnenavn}` };
-        });
-      })
-      .catch(() => [])
-  );
-
-  const totalData = [...dataCode];
-
-  return Response.json(totalData);
+  return Response.json(data);
 }
-
-const getCodeBody = (subject: string, institution: string = '1150', limit: string = '10') => ({
-  tabell_id: 208,
-  api_versjon: 1,
-  statuslinje: 'N',
-  begrensning: limit,
-  kodetekst: 'J',
-  desimal_separator: '.',
-  variabler: ['Institusjonskode', 'Avdelingskode', 'Emnekode', 'Emnenavn', 'Studiepoeng'],
-  groupBy: ['Institusjonskode', 'Avdelingskode', 'Emnekode', 'Emnenavn', 'Studiepoeng'],
-  filter: [
-    {
-      variabel: 'Emnekode',
-      selection: {
-        filter: 'like',
-        values: [`%${subject}%`]
-      }
-    }
-  ]
-});

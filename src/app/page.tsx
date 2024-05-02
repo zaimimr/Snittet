@@ -1,15 +1,21 @@
-import { Card, Heading, Text } from '@radix-ui/themes';
-import { fetchVal } from '@/val/val.rsc';
-import IndexVal from '@/content/pages/index.val';
+import { IconButton } from '@radix-ui/themes';
+import { InfoCircledIcon } from '@radix-ui/react-icons';
+import DropdownSelect from '@/components/DropdownSelect';
+import InfoCard from '@/components/InfoCard';
+import Link from 'next/link';
+import Subjects from '@/app/subjects';
 
-export default async function Home() {
-  const { title, description } = await fetchVal(IndexVal);
+export default function Home() {
   return (
-    <main>
-      <Card className="flex flex-col items-center justify-center">
-        <Heading>{title}</Heading>
-        <Text>{description}</Text>
-      </Card>
+    <main className="flex w-full flex-col items-center gap-4">
+      <IconButton className="absolute right-4 top-4" asChild>
+        <Link href="/about">
+          <InfoCircledIcon height="15" width="15" />
+        </Link>
+      </IconButton>
+      <InfoCard />
+      <DropdownSelect />
+      <Subjects />
     </main>
   );
 }

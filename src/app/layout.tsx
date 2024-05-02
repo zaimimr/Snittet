@@ -1,5 +1,6 @@
 import '@/public/globals.css';
 import '@radix-ui/themes/styles.css';
+import { Analytics } from '@vercel/analytics/react';
 import { config } from '../../val.config';
 import { Container, Theme } from '@radix-ui/themes';
 import { fetchVal } from '@/val/val.rsc';
@@ -8,7 +9,6 @@ import { ValProvider } from '@valbuild/next';
 import IndexVal from '@/content/pages/index.val';
 import React from 'react';
 import type { Metadata } from 'next';
-
 const inter = Inter({ subsets: ['latin'] });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -28,12 +28,14 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ValProvider config={config} disableRefresh>
-          <Theme appearance={theme}>
-            <Container align="center">{children}</Container>
-            {/* {isDevelopment() && <ThemePanel />} */}
+        <ValProvider config={config}>
+          <Theme appearance={theme} radius="small">
+            <Container align="center" className="px-4 py-14" size="3">
+              {children}
+            </Container>
           </Theme>
         </ValProvider>
+        <Analytics />
       </body>
     </html>
   );
